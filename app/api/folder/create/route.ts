@@ -71,5 +71,12 @@ export async function POST(request: NextResponse) {
       message: "Folder cretead successfully",
       folder: newFolder,
     });
-  } catch (error) {}
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error: "Faild to save folder to database",
+      },
+      { status: 500 }
+    );
+  }
 }
